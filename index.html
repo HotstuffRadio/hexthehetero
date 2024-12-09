@@ -53,9 +53,10 @@
             width: 200px;
             height: 150px;
             object-fit: cover;
-            flex-shrink: 0; /* Prevent shrinking */
+            flex-shrink: 0;
             border: 2px solid #000;
             border-radius: 5px;
+            cursor: pointer;
         }
         #carousel::-webkit-scrollbar {
             height: 8px;
@@ -109,6 +110,37 @@
             background: #000;
             color: #fff;
         }
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 80%;
+            max-height: 80%;
+            border: 2px solid #fff;
+        }
+        .modal:target {
+            display: flex; /* Show when targeted */
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .close:hover {
+            color: #ff0000;
+        }
     </style>
 </head>
 <body>
@@ -121,12 +153,10 @@
         <!-- Carousel Section -->
         <section class="carousel-container">
             <div id="carousel">
-                <img src="https://picsum.photos/id/40/200/150" alt="Kitten held in hand">
-                <img src="https://picsum.photos/id/41/200/150" alt="Another kitten">
-                <img src="https://picsum.photos/id/42/200/150" alt="Cute animal">
-                <img src="https://picsum.photos/id/43/200/150" alt="Scenic image">
-                <img src="https://picsum.photos/id/44/200/150" alt="Nature scene">
-                <img src="https://picsum.photos/id/45/200/150" alt="Random pattern">
+                <a href="#modal1"><img src="https://picsum.photos/id/40/200/150" alt="Kitten held in hand"></a>
+                <a href="#modal2"><img src="https://picsum.photos/id/41/200/150" alt="Another kitten"></a>
+                <a href="#modal3"><img src="https://picsum.photos/id/42/200/150" alt="Cute animal"></a>
+                <a href="#modal4"><img src="https://picsum.photos/id/43/200/150" alt="Scenic image"></a>
             </div>
         </section>
 
@@ -149,6 +179,24 @@
         </div>
     </footer>
 
+    <!-- Modal Section -->
+    <div id="modal1" class="modal">
+        <a href="#" class="close">×</a>
+        <img src="https://picsum.photos/id/40/200/150" alt="Kitten held in hand">
+    </div>
+    <div id="modal2" class="modal">
+        <a href="#" class="close">×</a>
+        <img src="https://picsum.photos/id/41/200/150" alt="Another kitten">
+    </div>
+    <div id="modal3" class="modal">
+        <a href="#" class="close">×</a>
+        <img src="https://picsum.photos/id/42/200/150" alt="Cute animal">
+    </div>
+    <div id="modal4" class="modal">
+        <a href="#" class="close">×</a>
+        <img src="https://picsum.photos/id/43/200/150" alt="Scenic image">
+    </div>
+
     <script>
         // LED Clock
         function updateClock() {
@@ -160,33 +208,8 @@
             clockElement.textContent = `${hours}:${minutes}:${seconds}`;
         }
 
-        // Initialize the clock and update it every second
         setInterval(updateClock, 1000);
-        updateClock();
-
-        // Chat Section
-        const messages = document.getElementById("messages");
-        const chatInput = document.getElementById("chat-input");
-        const sendBtn = document.getElementById("send-btn");
-
-        sendBtn.addEventListener("click", () => {
-            const msg = chatInput.value.trim();
-            if (msg) {
-                const div = document.createElement("div");
-                div.textContent = msg;
-                messages.appendChild(div);
-                chatInput.value = "";
-            }
-        });
-
-        // Payment Buttons
-        document.getElementById("paypal-btn").addEventListener("click", () => {
-            window.open("https://www.paypal.com", "_blank");
-        });
-
-        document.getElementById("credit-card-btn").addEventListener("click", () => {
-            alert("Redirecting to Credit Card Payment...");
-        });
+        updateClock(); // Initialize the clock
     </script>
 </body>
 </html>
