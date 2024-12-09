@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h2>t-shirts & queer politics</h2>
+    <title>HexTheHetero</title>
     <style>
         /* General Reset */
         body, h1, h2, p, div, input, button {
@@ -37,20 +37,32 @@
         }
         .carousel-container {
             margin: 20px auto;
-            max-width: 80%;
+            max-width: 90%;
             overflow: hidden;
+            border: 2px solid #000;
+            position: relative;
         }
         #carousel {
             display: flex;
             gap: 10px;
-            overflow-x: scroll;
+            overflow-x: auto;
             scroll-behavior: smooth;
+            padding: 10px 0;
         }
         #carousel img {
             width: 200px;
             height: 150px;
             object-fit: cover;
+            flex-shrink: 0; /* Prevent shrinking */
             border: 2px solid #000;
+            border-radius: 5px;
+        }
+        #carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        #carousel::-webkit-scrollbar-thumb {
+            background: #000;
+            border-radius: 10px;
         }
         .chat-section {
             margin: 20px auto;
@@ -109,21 +121,12 @@
         <!-- Carousel Section -->
         <section class="carousel-container">
             <div id="carousel">
-                <!-- Images will be dynamically loaded here -->
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-                <img src="https://picsum.photos/id/40/200/300" alt="kitten held in hand" />
-
+                <img src="https://picsum.photos/id/40/200/150" alt="Kitten held in hand">
+                <img src="https://picsum.photos/id/41/200/150" alt="Another kitten">
+                <img src="https://picsum.photos/id/42/200/150" alt="Cute animal">
+                <img src="https://picsum.photos/id/43/200/150" alt="Scenic image">
+                <img src="https://picsum.photos/id/44/200/150" alt="Nature scene">
+                <img src="https://picsum.photos/id/45/200/150" alt="Random pattern">
             </div>
         </section>
 
@@ -159,18 +162,7 @@
 
         // Initialize the clock and update it every second
         setInterval(updateClock, 1000);
-        updateClock(); // Call immediately to show the time without delay
-
-        // Carousel
-        const carousel = document.getElementById("carousel");
-        const imageCount = 20;
-
-        for (let i = 1; i <= imageCount; i++) {
-            const img = document.createElement("img");
-            img.src = `https://via.placeholder.com/200x150?text=Image+${i}`;
-            img.alt = `Image ${i}`;
-            carousel.appendChild(img);
-        }
+        updateClock();
 
         // Chat Section
         const messages = document.getElementById("messages");
@@ -198,4 +190,3 @@
     </script>
 </body>
 </html>
-
