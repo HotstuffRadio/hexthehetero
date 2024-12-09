@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalistic Website</title>
+    <style>
+        /* General Reset */
+        body, h1, h2, p, div, input, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* LED Clock */
+        #clock {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 36px;
+            color: #ff0000; /* Red LED Color */
+            text-align: center;
+            background: #000; /* Black Background */
+            padding: 10px 0;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #333;
+            text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+        }
+        .carousel-container {
+            margin: 20px auto;
+            max-width: 80%;
+            overflow: hidden;
+        }
+        #carousel {
+            display: flex;
+            gap: 10px;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+        #carousel img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid #000;
+        }
+        .chat-section {
+            margin: 20px auto;
+            max-width: 80%;
+            text-align: center;
+        }
+        #chat-box {
+            border: 2px solid #000;
+            padding: 10px;
+        }
+        #messages {
+            max-height: 200px;
+            overflow-y: scroll;
+            text-align: left;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        #chat-input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #000;
+        }
+        #send-btn {
+            padding: 10px;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        #payment-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px;
+            border: 1px solid #000;
+            background: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="clock"></div> <!-- LED Clock -->
+        <h1>Welcome to My Minimalistic Site</h1>
+    </header>
+
+    <main>
+        <!-- Carousel Section -->
+        <section class="carousel-container">
+            <div id="carousel">
+                <!-- Images will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <!-- Chat Section -->
+        <section class="chat-section">
+            <h2>Chat with Us</h2>
+            <div id="chat-box">
+                <div id="messages"></div>
+                <input type="text" id="chat-input" placeholder="Type your message">
+                <button id="send-btn">Send</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h2>Make a Payment</h2>
+        <div id="payment-options">
+            <button id="paypal-btn">Pay with PayPal</button>
+            <button id="credit-card-btn">Pay with Credit Card</button>
+        </div>
+    </footer>
+
+    <script>
+        // LED Clock
+        function updateClock() {
+            const clockElement = document.getElementById("clock");
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            const seconds = String(now.getSeconds()).padStart(2, "0");
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Initialize the clock and update it every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Call immediately to show the time without delay
+
+        // Carousel
+        const carousel = document.getElementById("carousel");
+        const imageCount = 20;
+
+        for (let i = 1; i <= imageCount; i++) {
+            const img = document.createElement("img");
+            img.src = `https://via.placeholder.com/200x150?text=Image+${i}`;
+            img.alt = `Image ${i}`;
+            carousel.appendChild(img);
+        }
+
+        // Chat Section
+        const messages = document.getElementById("messages");
+        const chatInput = document.getElementById("chat-input");
+        const sendBtn = document.getElementById("send-btn");
+
+        sendBtn.addEventListener("click", () => {
+            const msg = chatInput.value.trim();
+            if (msg) {
+                const div = document.createElement("div");
+                div.textContent = msg;
+                messages.appendChild(div);
+                chatInput.value = "";
+            }
+        });
+
+        // Payment Buttons
+        document.getElementById("paypal-btn").addEventListener("click", () => {
+            window.open("https://www.paypal.com", "_blank");
+        });
+
+        document.getElementById("credit-card-btn").addEventListener("click", () => {
+            alert("Redirecting to Credit Card Payment...");
+        });
+    </script>
+</body>
+</html>
 
