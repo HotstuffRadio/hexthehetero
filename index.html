@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1>Welcome to Sylvester House of Design & Vintage Fashion Welcome to Sylvester House of Design & Vintage Fashion Sylvester House of Design & Vintage Fashion Sylvester House of Design Sylvester </h1>
     <title>SYLVESTERS</title>
+    <h1>sylvesters fashion house sylvesters fashion house sylvesters fashion house sylvesters fashion house </h1>
     <style>
         /* General Reset */
         body, h1, h2, p, div, input, button {
@@ -32,9 +32,9 @@
         #clock {
             font-family: 'Courier New', Courier, monospace;
             font-size: 36px;
-            color: #FF4191; /* Hot Pink */
+            color: #FF4191;
             text-align: center;
-            background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+            background: rgba(0, 0, 0, 0.8);
             padding: 10px 0;
             letter-spacing: 2px;
             border-top: 2px solid #333;
@@ -78,42 +78,54 @@
             border-radius: 10px;
         }
 
+        /* Chat Box */
         .chat-section {
-            margin: 20px auto;
-            max-width: 80%;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 250px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #000;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 10px;
         }
 
-        #chat-box {
-            border: 2px solid #000;
-            padding: 10px;
-            border-radius: 5px;
+        .chat-section h2 {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
         #messages {
-            max-height: 200px;
-            overflow-y: scroll;
+            height: 150px;
+            overflow-y: auto;
             text-align: left;
             margin-bottom: 10px;
             padding: 5px;
             border: 1px solid #ccc;
+            background: #f9f9f9;
+            border-radius: 5px;
         }
 
         #chat-input {
             width: 70%;
-            padding: 10px;
+            padding: 5px;
             border: 1px solid #000;
+            border-radius: 5px;
         }
 
         #send-btn {
-            padding: 10px;
+            padding: 5px;
             background: #000;
             color: #fff;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
+        }
+
+        #send-btn:hover {
+            background: #FF4191;
         }
 
         footer {
@@ -145,44 +157,6 @@
             background: #000;
             color: #fff;
         }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border: 5px solid #fff;
-            border-radius: 10px;
-        }
-
-        .modal:target {
-            display: flex;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 32px;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .close:hover {
-            color: #ff0000;
-        }
     </style>
 </head>
 <body>
@@ -200,13 +174,12 @@
             </div>
         </section>
 
+        <!-- Chat Section -->
         <section class="chat-section">
-            <h2>Chat with Us</h2>
-            <div id="chat-box">
-                <div id="messages"></div>
-                <input type="text" id="chat-input" placeholder="Type your message">
-                <button id="send-btn">Send</button>
-            </div>
+            <h2>Chat</h2>
+            <div id="messages"></div>
+            <input type="text" id="chat-input" placeholder="Type a message">
+            <button id="send-btn">Send</button>
         </section>
     </main>
 
@@ -218,11 +191,6 @@
         <div id="clock"></div>
     </footer>
 
-    <div id="modal1" class="modal">
-        <a href="#" class="close">×</a>
-        <img src="https://i.postimg.cc/m2KN20Nm/wonky-001-1.jpg" alt="Modal Image">
-    </div>
-
     <script>
         function updateClock() {
             const clockElement = document.getElementById("clock");
@@ -232,6 +200,7 @@
             const seconds = String(now.getSeconds()).padStart(2, "0");
             clockElement.textContent = `${hours}:${minutes}:${seconds}`;
         }
+
         setInterval(updateClock, 1000);
         updateClock();
     </script>
