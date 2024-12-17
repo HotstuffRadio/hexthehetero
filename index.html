@@ -11,37 +11,47 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        /* Background Image Section */
         body {
             font-family: Arial, sans-serif;
-            background-color: #FFCFEF;
+            background: url('https://i.postimg.cc/m2KN20Nm/wonky-001-1.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #000;
         }
+
         header {
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
             text-align: center;
             padding: 20px 0;
         }
+
         /* LED Clock */
         #clock {
             font-family: 'Courier New', Courier, monospace;
             font-size: 36px;
             color: #FF4191; /* Pink */
             text-align: center;
-            background: #000; /* Black Background */
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
             padding: 10px 0;
             letter-spacing: 2px;
             margin-bottom: 10px;
             border-bottom: 2px solid #333;
             text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
         }
+
         .carousel-container {
             margin: 20px auto;
             max-width: 90%;
             overflow: hidden;
             border: 2px solid #000;
             position: relative;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
         }
+
         #carousel {
             display: flex;
             gap: 10px;
@@ -49,6 +59,7 @@
             scroll-behavior: smooth;
             padding: 10px 0;
         }
+
         #carousel img {
             width: 200px;
             height: 150px;
@@ -58,6 +69,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         #carousel::-webkit-scrollbar {
             height: 8px;
         }
@@ -65,15 +77,22 @@
             background: #000;
             border-radius: 10px;
         }
+
         .chat-section {
             margin: 20px auto;
             max-width: 80%;
             text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
         }
+
         #chat-box {
             border: 2px solid #000;
             padding: 10px;
+            border-radius: 5px;
         }
+
         #messages {
             max-height: 200px;
             overflow-y: scroll;
@@ -82,11 +101,13 @@
             padding: 5px;
             border: 1px solid #ccc;
         }
+
         #chat-input {
             width: 70%;
             padding: 10px;
             border: 1px solid #000;
         }
+
         #send-btn {
             padding: 10px;
             background: #000;
@@ -94,25 +115,37 @@
             border: none;
             cursor: pointer;
         }
+
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+        }
+
         #payment-options {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin-top: 20px;
         }
+
         button {
             padding: 10px;
             border: 1px solid #000;
             background: #fff;
             cursor: pointer;
         }
+
         button:hover {
             background: #000;
             color: #fff;
         }
+
         /* Modal Styles */
         .modal {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -123,15 +156,18 @@
             align-items: center;
             z-index: 1000;
         }
+
         .modal img {
             max-width: 90%;
             max-height: 90%;
             border: 5px solid #fff;
             border-radius: 10px;
         }
+
         .modal:target {
-            display: flex; /* Show when targeted */
+            display: flex;
         }
+
         .close {
             position: absolute;
             top: 20px;
@@ -140,6 +176,7 @@
             color: #fff;
             text-decoration: none;
         }
+
         .close:hover {
             color: #ff0000;
         }
@@ -147,31 +184,20 @@
 </head>
 <body>
     <header>
-        <div id="clock"></div> <!-- LED Clock -->
+        <div id="clock"></div>
         <h1>Sylvester</h1>
     </header>
 
     <main>
-        <!-- Carousel Section --> 
         <section class="carousel-container">
             <div id="carousel">
                 <a href="#modal1"><img src="https://i.postimg.cc/6qn6V2g2/Club-Democracy-Pink-Blue.jpg"></a>
                 <a href="#modal2"><img src="https://i.postimg.cc/139R6zHX/Cruising-Utopia-Colour-Panel.jpg"></a>
                 <a href="#modal3"><img src="https://i.postimg.cc/wj0qkdfV/Explainer-Panel.jpg"></a>
                 <a href="#modal4"><img src="https://i.postimg.cc/sxYyGFG5/Triple-Red-Pink-Dorian-Gray-Cafe-Bulowsta-Be-57-1927-33.jpg"></a>
-                <a href="#modal5"><img src="https://i.postimg.cc/GhRbwp6K/List-Queer-Spaces-1920-30s-Schoneburg-Multi-Panel-Colours.jpg"></a>
-                <a href="#modal6"><img src="https://i.postimg.cc/Wb7T2vvv/Meeting-places-schoeneberg-Black-Blue-Details-Dorian-Grey-Installation-Poster.jpg"></a>
-                <a href="#modal7"><img src="https://i.postimg.cc/SxNqRvSz/The-Queen-of-Weimar-Marlene-Dietricht-Pink.jpg"></a>
-                <a href="#modal8"><img src="https://i.postimg.cc/6QFNH6dd/Triple-White-Dorian-Gray-Cafe-Bulowsta-Be-57-1927-33.jpg"></a>
-                <a href="#modal9"><img src="https://picsum.photos/200/300" alt="Kitten held in hand"></a>
-                <a href="#modal10"><img src="https://picsum.photos/200/300" alt="Another kitten"></a>
-                <a href="#modal11"><img src="https://picsum.photos/200/300" alt="Cute animal"></a>
-                <a href="#modal12"><img src="https://picsum.photos/200/300" alt="Scenic image"></a>
-                
             </div>
         </section>
 
-        <!-- Chat Section -->
         <section class="chat-section">
             <h2>Chat with Us</h2>
             <div id="chat-box">
@@ -185,31 +211,17 @@
     <footer>
         <h2>Make a Payment</h2>
         <div id="payment-options">
-            <button id="paypal-btn">Pay with PayPal</button>
-            <button id="credit-card-btn">Pay with Credit Card</button>
+            <button>Pay with PayPal</button>
+            <button>Pay with Credit Card</button>
         </div>
     </footer>
 
-    <!-- Modal Section -->   ( t-shirt pics of image go here )
     <div id="modal1" class="modal">
         <a href="#" class="close">×</a>
-        <img src="https://i.postimg.cc/m2KN20Nm/wonky-001-1.jpg">
-    </div>
-    <div id="modal2" class="modal">
-        <a href="#" class="close">×</a>
-        <img src="https://picsum.photos/id/41/1200/900" alt="Another kitten">
-    </div>
-    <div id="modal3" class="modal">
-        <a href="#" class="close">×</a>
-        <img src="https://picsum.photos/id/42/1200/900" alt="Cute animal">
-    </div>
-    <div id="modal4" class="modal">
-        <a href="#" class="close">×</a>
-        <img src="https://picsum.photos/id/43/1200/900" alt="Scenic image">
+        <img src="https://i.postimg.cc/m2KN20Nm/wonky-001-1.jpg" alt="Modal Image">
     </div>
 
     <script>
-        // LED Clock
         function updateClock() {
             const clockElement = document.getElementById("clock");
             const now = new Date();
@@ -218,9 +230,8 @@
             const seconds = String(now.getSeconds()).padStart(2, "0");
             clockElement.textContent = `${hours}:${minutes}:${seconds}`;
         }
-
         setInterval(updateClock, 1000);
-        updateClock(); // Initialize the clock
+        updateClock();
     </script>
 </body>
 </html>
